@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bilgi ve Uygulama Hesap Makinesi</title>
+    <link rel="stylesheet" href="app.css" />
+    <style>
+#calculator {
+    width: 100;
+    height: 100;
+	border:3px solid #BBBBBB;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+	background: #aaaaaaa;
+}
+#tuslar1{
+    margin: 0 auto;
+    width: 350px;
+    height: auto;
+    margin-top:10px;
+	border:4px solid #BBBBBB;
+  
+}
+
+#sonuc {
+    padding: 10px;
+    width: 100;
+    height:100;
+    border: none;
+    border-radius: 3px;
+    text-align: right;
+    font-size: 30px;
+    letter-spacing: 7px;
+    background-color:rgba(255, 99, 71, 0.5);
+}
+button{
+    width: 70px;
+    height: 50px;
+    margin: 4px;
+    background-color:rgba(255, 99, 71, 0.5);
+}
+    </style>
+</head>
+
+<body>
+  <h1>Hesap Makinesi</h1>
+    <div id="calculator">
+        <div id="hesapEkranı">
+            <input type="text" id="sonuc" readonly="readonly" value="" />
+             <button ></button>
+           
+        </div>
+        <div id="tuslar1">
+         
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>/</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>*</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>-</button>
+            <button>0</button>
+            <button>.</button>
+            <button>=</button>
+            <button>+</button>
+        </div>
+    </div>
+    <script>
+"use strict";
+var _tuslar1 = document.querySelectorAll("button"),
+    _tuslar1Count = _tuslar1.length,
+    _sonuc = document.querySelector("#sonuc"),
+    iter = 0;
+
+for (iter = 0; iter < _tuslar1Count; iter++) {
+    _tuslar1[iter].onclick = doit;
+}
+
+function doit() {
+    var _currentValue = this.innerHTML;
+
+    if (_currentValue == "=") {
+        try {
+            _sonuc.value = eval(_sonuc.value);
+        } catch (e) {
+            _sonuc.value = 0;
+        }
+        return;
+    }
+
+    _sonuc.value += _currentValue;
+}
+    </script>
+</body>
+</html>
